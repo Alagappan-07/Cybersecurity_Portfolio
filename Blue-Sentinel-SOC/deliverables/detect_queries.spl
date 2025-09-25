@@ -1,0 +1,3 @@
+index=sysmon sourcetype=sysmon_alert CommandLine="*powershell*" OR CommandLine="*cmd.exe*"
+| stats count by host, user, process
+| sort - count

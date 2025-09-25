@@ -1,0 +1,12 @@
+<Sysmon schemaversion="4.30">
+  <EventFiltering>
+    <RuleGroup name="Default Rules" groupRelation="or">
+      <FileCreateTime onmatch="exclude"/>
+      <ProcessCreate onmatch="include">
+        <CommandLine condition="contains">powershell</CommandLine>
+        <CommandLine condition="contains">cmd.exe</CommandLine>
+      </ProcessCreate>
+      <NetworkConnect onmatch="include"/>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

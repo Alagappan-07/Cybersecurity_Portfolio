@@ -1,0 +1,4 @@
+index=sysmon sourcetype=sysmon_alert EventCode=1
+| search CommandLine="*mimikatz*" OR CommandLine="*powershell* -enc *"
+| stats count by host, user, CommandLine
+| table host, user, CommandLine, count
